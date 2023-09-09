@@ -1,0 +1,31 @@
+{
+	"user": {
+		"635494617": {
+			"first_name": "Alexey",
+			"last_name": "Erastov",
+			"user_name": "AlexeyEr",
+			"playlist": [
+				{
+					"playlist_name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u043f\u043e \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u0430\u043c",
+					"count_video": 1033,
+					"count_viewed": 158,
+					"count_vid_in_day": 4,
+					"count_left_video": 875,
+					"count_day": 218.75
+				}
+			]
+		},
+		"5094166021": {
+			"first_name": "lol",
+			"last_name": "Lol",
+			"user_name": "E_qbt",
+			"playlist": []
+		},
+		"6566945174": {
+			"first_name": "Misha",
+			"last_name": "Erastov",
+			"user_name": "NightYum",
+			"playlist": []
+		}
+	}
+}
