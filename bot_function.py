@@ -55,13 +55,15 @@ class JsonDb:
         with open(self.db_name, mode="w") as file:
             json.dump(data, file, indent="\t")
 
-    def verify_user(self, user_id: str) -> bool:
+    def verify_user(self, user_id: [str, int]) -> bool:
+        user_id = str(user_id)
         db = self.read()
         if user_id not in db["user"]:
             return True
         return False
 
-    def add_user_info(self, user_id: str, first_name: str, last_name: str, user_name: str):
+    def add_user_info(self, user_id: [str, int], first_name: str, last_name: str, user_name: str):
+        user_id = str(user_id)
         db = self.read()
         db["user"][user_id] = {
             "first_name": None,
@@ -75,7 +77,8 @@ class JsonDb:
         db["user"][user_id]["playlist"] = []
         self.append(data=db)
 
-    def add_playlist(self, user_id: str, playlist_name: str, count_video: str, count_viewed: str, count_vid_in_day: str, count_left_video: str, count_day: str):
+    def add_playlist(self, user_id: [str, int], playlist_name: str, count_video: str, count_viewed: str, count_vid_in_day: str, count_left_video: str, count_day: str):
+        user_id = str(user_id)
         db = self.read()
         playlist = {
             "playlist_name": playlist_name,
@@ -88,17 +91,20 @@ class JsonDb:
         db["user"][user_id]["playlist"].append(playlist)
         self.append(data=db)
 
-    def view_playlist(self, user_id: str, playlist_id: int) -> dict:
+    def view_playlist(self, user_id: [str, int], playlist_id: int) -> dict:
+        user_id = str(user_id)
         db = self.read()
         playlist = db["user"][user_id]["playlist"][playlist_id]
         return playlist
 
-    def delete_playlist(self, user_id: str, playlist_id: int) -> None:
+    def delete_playlist(self, user_id: [str, int], playlist_id: int) -> None:
+        user_id = str(user_id)
         db = self.read()
         db["user"][user_id]["playlist"].pop(playlist_id)
         self.append(data=db)
 
-    def update_playlist(self, user_id: str, playlist_id: int, count_viewed_today: int) -> None:
+    def update_playlist(self, user_id: [str, int], playlist_id: int, count_viewed_today: int) -> None:
+        user_id = str(user_id)
         db = self.read()
         count_viewed = db["user"][user_id]["playlist"][playlist_id]["count_viewed"] + count_viewed_today
         count_left_video = db["user"][user_id]["playlist"][playlist_id]["count_left_video"] - count_viewed_today
@@ -107,16 +113,19 @@ class JsonDb:
         db["user"][user_id]["playlist"][playlist_id]["count_day"] = count_left_video / db["user"][user_id]["playlist"][playlist_id]["count_vid_in_day"]
         self.append(data=db)
 
-    def get_len_playlist(self, user_id: str) -> int:
+    def get_len_playlist(self, user_id: [str, int]) -> int:
+        user_id = str(user_id)
         db = self.read()
         len_playlist = len(db["user"][user_id]["playlist"])
         return len_playlist
 
-    def get_playlist_names(self, user_id: str) -> list:
+    def get_playlist_names(self, user_id: [str, int]) -> list:
+        user_id = str(user_id)
         db = self.read()
+        len_playlist = len(db["user"][user_id]["playlist"])
         playlist_names = []
-        for sub_playlist in db["user"][user_id]["playlist"]:
-            playlist_names.append(sub_playlist["playlist_name"])
+        for num in range(1, len_playlist+1):
+            playlist_names.append(str(num) + '. ' + db["user"][user_id]["playlist"][num-1]["playlist_name"])
         return playlist_names
 # mode = "a" if os.path.exists(db_name) else "m"
 

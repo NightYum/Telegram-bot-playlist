@@ -8,10 +8,18 @@
 				{
 					"playlist_name": "\u0410\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 \u043f\u043e \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u0430\u043c",
 					"count_video": 1033,
-					"count_viewed": 158,
+					"count_viewed": 175,
 					"count_vid_in_day": 4,
-					"count_left_video": 875,
-					"count_day": 218.75
+					"count_left_video": 858,
+					"count_day": 214.5
+				},
+				{
+					"playlist_name": "Python \u0434\u043b\u044f \u0447\u0430\u0439\u043d\u0438\u043a\u043e\u0432",
+					"count_video": 60,
+					"count_viewed": 5,
+					"count_vid_in_day": 2,
+					"count_left_video": 55,
+					"count_day": 27.5
 				}
 			]
 		},
@@ -25,7 +33,24 @@
 			"first_name": "Misha",
 			"last_name": "Erastov",
 			"user_name": "NightYum",
-			"playlist": []
+			"playlist": [
+				{
+					"playlist_name": "test",
+					"count_video": 100,
+					"count_viewed": 10,
+					"count_vid_in_day": 10,
+					"count_left_video": 90,
+					"count_day": 9.0
+				},
+				{
+					"playlist_name": "test0",
+					"count_video": 100,
+					"count_viewed": 10,
+					"count_vid_in_day": 10,
+					"count_left_video": 90,
+					"count_day": 9.0
+				}
+			]
 		}
 	}
 }
